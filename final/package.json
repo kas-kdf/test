@@ -1,0 +1,18 @@
+{
+  "name": "js-module-for-lectors",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:client": "static-server ./",
+    "start:backend": "npm run json-server --watch ./server/db.json",
+    "json-server": "json-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "json-server": "^0.16.3",
+    "static-server": "^2.2.1"
+  }
+}

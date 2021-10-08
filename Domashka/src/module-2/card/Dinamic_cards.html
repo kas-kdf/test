@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <title>Dinamic Cards</title>
+
+
+</head>
+
+<body>
+  <div class="root">
+  </div>
+
+  <script>
+    'use strict';
+    class Card {
+      constructor(src, title, rating, price, descr, ) {
+        this.src = src;
+        this.title = title;
+        this.rating = rating;
+        this.descr = descr;
+        this.price = price;
+      }
+      render() {
+        const div = document.createElement('div');
+        document.querySelector('.root').append(div);
+        div.innerHTML = `
+				<div class="card shadow col-3 m-5">
+					<img src=${this.src} class="card-img-top p-5" alt="apple-watch"></img>
+					<div class="card-body">
+						<div class="d-flex justify-content-between pb-2">
+							<div class="bg-primary text-white p-1 rounded shadow">${this.rating}  <i class="bi bi-star"></i> </div>
+							<div>&#36; ${this.price}</div>
+						</div>
+						<h5 class="card-title">${this.title}</h5>
+						<p class="card-text">${this.descr}</p>
+					</div> 
+					<div class="d-flex justify-content-center align-items-center">
+						<a href="#" class="col-6 btn bg-secondary bg-opacity-10">
+							<i class="bi bi-suit-heart"></i> WISHLIST</a>
+						<a href="#" class="col-6 btn btn-primary">
+							<i class="bi bi-bag-plus"></i> ADD TO CART</a>
+					</div>
+			 </div>
+				`;
+      }
+    }
+
+    const oneCard = new Card(
+      'watch.png',
+      'Apple Watch Series 4 GPS',
+      3.4,
+      399,
+      "Redesigned from scratch and completely revised."
+    );
+    oneCard.render();
+
+  </script>
+</body>
+
+</html>
